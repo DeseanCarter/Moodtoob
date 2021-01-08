@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <section class="landingPage" style="display:none" data-show>
+        <section class="landingPage" style="display:block" data-show>
             <div class="navBar">
                 <span>(Previous Mood icon)</span> 
                 <span>(New Mood icon)</span>
@@ -20,13 +20,13 @@
                 </div>
                 <!--appends welcome message and speil if user is new-->
                 <div class="newUser" id="newUser">
-                    <h3 class="greetings">Welcome to Moodtube!</h3>
-                    <h4 class="greetings">click the magic mood rock <br> to have your mood analyzed!</h4>
+                    <h3 class="newGreeting1">Welcome to Moodtube!</h3>
+                    <h4 class="newGreeting2">click the magic mood rock <br> to have your mood analyzed!</h4>
                 </div>
                 <!--appends welcome message and speil if user has been here before, logic concats in previous mood and color-->
             </div>
         </section>
-        <section class="submissionPage" style="display:block" data-hide> <!--toggles the display property from none to flex depending on what data property is-->
+        <section class="submissionPage" style="display:none" data-hide> <!--toggles the display property from none to flex depending on what data property is-->
             <!--photo submission form here-->
             <!--attribute is set to hide when ajax request and append is successful-->
             <!--or do a $(element).detach() function? so it can be re-appended later-->
