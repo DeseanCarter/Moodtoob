@@ -1,18 +1,12 @@
-html{
-    height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+body{
+    height: 100vh;
     background-color: #101c25;
     background-repeat:no-repeat;
-    background-image: 
+    /* background-image: 
     linear-gradient(
         to bottom right,
-       #ed8632, #ed4558 , #a15f99); /*this is probably going to be an issue that it works appended to HTML*/
-}
-
-.landingPage{
+       #ed8632, #ed4558 , #a15f99); */
+       /*going to need to make this dynamic*/
     color: #fff4de;
     font-family: Arial, Helvetica, sans-serif
 }
@@ -28,7 +22,7 @@ html{
 }
 
 .welcome{
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
@@ -39,42 +33,58 @@ html{
     width: 60vw;
 }
 
-h4{
-    font-size: 60px;
+h3{
+    font-size: 5vw;
+    /* margin-block-end: .25em; */
 }
-
+h4{
+    font-size: 3vw;
+    margin-block-start: .25em;
+    letter-spacing: 1px;
+}
 
 .toForm{
     width: 30vw;
 }
 
-button{
-    border-radius: 50%;
-    padding: 20px;
-    border: 0;
-    background-color: #101c25;
-    color: #fff4de;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.tooltip {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: rgba(15, 27, 36, 0.8);
-    color:  #fff4de;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-  
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-  
+
+.submissionPrompt{
+    width:  60vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.submissionPrompt strong{
+    animation-name: text-color;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    color:#fff4de;
+    }
+
+@keyframes text-color{
+    25%{color: #ed8632;}
+    50%{color: #ed4558;}
+    75%{color: #a15f99;}
+    100%{color: #e79575;}
+}
+
+.moodorb{
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+}
+/*going to replace with svg element, just using a placeholder*/
+
+/* .submissionButtons{
+    flex-basis: 100%;
+    height: 10vh;
+} */
