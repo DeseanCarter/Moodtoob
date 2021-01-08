@@ -1,0 +1,87 @@
+body{
+    height: 100vh;
+    background-color: #101c25;
+    background-repeat:no-repeat;
+    background-image: 
+    linear-gradient(
+        to bottom right,
+       #ed8632, #ed4558 , #a15f99);
+       /*going to need to make this dynamic*/
+    color: #fff4de;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #101c25;
+    padding: 10px 30px;
+}
+
+.welcome{
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.newUser .returnUser{
+    width: 60vw;
+}
+
+.newGreeting1 { /*first header*/
+    font-size: 5vw;
+    margin-block-end: .25em;
+}
+
+.newGreeting2 { /*second header*/
+    font-size: 3vw;
+    margin-block-start: .25em;
+    letter-spacing: 1px;
+    justify-content: right;
+}
+
+.toForm{
+    width: 30vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submissionPrompt{
+    width:  60vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.submissionPrompt strong{
+    animation-name: text-color;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    color:#e79575;
+    }
+
+@keyframes text-color{
+    25%{color: #ed8632;}
+    50%{color: #ed4558;}
+    75%{color: #a15f99;}
+    100%{color: #e79575;}
+}
+
+.moodorb{
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+}
+/*going to replace with svg element, just using a placeholder*/
