@@ -1,4 +1,4 @@
-let bean = "./bean.jpg"
+
 let currentMood;
 
 
@@ -85,3 +85,45 @@ $.ajax({
 function checkImage(){
     console.log( "hello!")
 }
+
+
+//DESEAN'S AREA 
+
+$(function()
+  {
+    $('#testImg').change( function()
+    {
+      console.log( $(this).val() );
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+  //Desean's Area 
+
+
+
+  //Josh's Area 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //Josh's Area
