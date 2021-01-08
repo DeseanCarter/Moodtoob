@@ -1,1 +1,43 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Moodtube</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <section class="landingPage" data-show>
+            <div class="navBar">
+                <span>(Previous Mood icon)</span> 
+                <span>(New Mood icon)</span>
+            </div>
+            <div class="welcome">
+                <div class="toForm">
+                    <button class="tooltip">◀
+                    <span class="tooltiptext">New Mood</span>
+                    </button>
+                </div>
+                <!--appends welcome message and speil if user is new-->
+                <div class="newUser">
+                    <h2>Welcome to Moodtube!</h2>
+                    <h3>click the magic mood rock <br> to have your mood analyzed!</h3>
+                    <img src="#" alt="magic mood rock"> <!--can attach eventlistener to this thing, fires ajax request-->
+                </div>
+                <!--appends welcome message and speil if user has been here before, logic concats in previous mood and color-->
+            </div>
+        </section>
+        <section class="submissionPage" style="display:none" data-hide> <!--might be able to remove display:none/block later when show and hide are called. Whatever's more elegant.-->
+            <!--photo submission form here-->
+            <!--attribute is set to hide when ajax request and append is successful-->
+            <!--or do a $(element).detach() function? so it can be re-appended later-->
+
+            <!--placeholder iframe here, content will be appended dynamically -->
+            
+            
+        </section>
+        <script src="" async defer></script>
+    </body>
+</html>
