@@ -14,8 +14,8 @@ $.ajax({
     url: queryURL,
     type: 'POST',
     data: {
-        api_key: "ieZtXQdAZ6VHqF9Eo7YGfpzMqdrsKxuq",
-        api_secret: "qlqHSezGLOP2ls3wFiIeJuULjom0EKYJ",
+        api_key: api_key,
+        api_secret: api_secret,
         return_attributes: "emotion",
         image_base64: imageBase64,
     },
