@@ -182,106 +182,203 @@ function nextPage(){
   //Desean's Area 
 
 
-
-  //Josh's Area 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //Josh's Area
-
-
-
-//sets the variable of mood to a number 1-7 
-
-let mood = 1;
-let genre;
-console.log(mood);
-
-if( mood === 1 ){
-    genre = 'happy music';
-}
-// set the url that the content is going to be pulled from 
-const youtubeURL = 'https://www.youtube.com/embed/';
-
-//perform a .ajax request 
-//use youtube api to do a get request
-  function authenticate() {
-    return gapi.auth2.getAuthInstance()
-        .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-        .then(function() { console.log("Sign-in successful"); },
-              function(err) { console.error("Error signing in", err); });
-  }
-  function loadClient() {
-    gapi.client.setApiKey("insert API KEY");
-    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-        .then(function() { console.log("GAPI client loaded for API"); },
-              function(err) { console.error("Error loading GAPI client for API", err); });
-  }
-  // Make sure the client is loaded and sign-in is complete before calling this method.
-  function execute() {
-   return gapi.client.youtube.search.list({
-      "part": [
-        "snippet"
+  let moodArr = {
+    angry: 
+        [
+        'getting angry',
+        'pissed off',
+        'angry',
+        'isolated',
+        'enraged',
+        'eat shit and die'
+        ],
+    disgust:
+        [
+        'disgust',
+        'nasty',
+        'bad',
+        'gross',
+        'rick roll',
+        'yuck'
+        ],
+      fear:[
+        'fear',
+        'scary',
+        'afraid',
+        'spooky',
+        'spoopy',
+        'haunting'
       ],
-      "maxResults": 50,
-      "q": genre,
-      "regionCode": "US",
-      "type": ["video"]
+      happy:[
+        'happy',
+        'joy',
+        'cheerful',
+        'upbeat',
+        'inspiring',
+        'fun',
+        'party'
+      ],
+      sad:[
+        'sad',
+        'sadness',
+        'tears',
+        'emotional',
+        'unhappy',
+        'misery',
+        'miserable',
+        'sadboi'
+      ],
+      surprise:[
+        'surprise',
+        'shocked',
+        'jump scare',
+        'loud noise',
+        'astounded',
+        'awe',
+        'wow',
+        'incredulous'
+        
+      ],
+      neutral:[
+        'neutral',
+        'chill',
+        'numb',
+        'dont care',
+        'calm',
+        'vibing',
+        'nonchalant',
+        'aloof',
+        'casual',
+        'couch potato',
+        'inactive',
+        'I dont care anymore'
+      ]
       
-    })
-     
-     .then(function(response) {
-     
-     console.log('response', response)
-     document.querySelector('#myVideo').innerHTML = "";
-      for(let i = 0; i < 5; i++)
-      {
-                //create iframe/ set src to new id
-                let newVideo = document.createElement('iframe');
-                newVideo.src = "" + youtubeURL + response.result.items[Math.floor(Math.random()* 50 + 1)].id.videoId + "";
-                //append newVideo to myVideo
-                document.querySelector('#myVideo').append(newVideo);
-        
+    
       }
-              },
-              function(err) { console.error("Execute error", err); });
+
+  
+  let genre;
+  
+  function getEmotion(){
+    let mood = Math.floor(Math.random() * 7 + 1);
+    console.log(mood);
+    if( mood === 1 ){
+      genre = moodArr.angry[Math.floor(Math.random() * moodArr.angry.length)]
+      console.log(genre);
+  
+        
+    }else if( mood === 2 ){
+      genre = moodArr.disgust[Math.floor(Math.random() * moodArr.disgust.length)]
+      console.log(genre);
+  
+        
+    }else if( mood === 3 ){
+      genre = moodArr.fear[Math.floor(Math.random() * moodArr.fear.length)]
+      console.log(genre);
+  
+        
+    }else if( mood === 4 ){
+      genre = moodArr.happy[Math.floor(Math.random() * moodArr.happy.length)]
+      console.log(genre);
+  
+        
+    }
+    else if( mood === 5 ){
+      genre = moodArr.sad[Math.floor(Math.random() * moodArr.sad.length)]
+      console.log(genre);
+  
+       
+    }else if( mood === 6 ){
+      genre = moodArr.surprise[Math.floor(Math.random() * moodArr.surprise.length)]
+      console.log(genre);
+  
+        
+    }else if( mood === 7 ){
+      genre = moodArr.neutral[Math.floor(Math.random() * moodArr.neutral.length)]
+      console.log(genre);
+  
+        
+    }
   }
-  gapi.load("client:auth2", function() {
-    gapi.auth2.init({client_id: "Enter Client Id"});
-  });
-
-
-//eventListener for authenticate
-document.addEventListener('click', function(e) 
-{
-    if(e.target.matches('#auth'))
-    {
-        authenticate().then(loadClient);
-        
+  
+  const youtubeURL = 'https://www.youtube.com/embed/';
+  
+  
+  
+    function authenticate() {
+      return gapi.auth2.getAuthInstance()
+          .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+          .then(function() { console.log("Sign-in successful"); },
+                function(err) { console.error("Error signing in", err); });
     }
-})
-
-//everntListener for page load
-document.addEventListener('click', function(e) 
-{
-    if(e.target.matches('#go'))
-    {
-        execute();
-        
+    function loadClient() {
+      gapi.client.setApiKey("API key");
+      return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+          .then(function() { console.log("GAPI client loaded for API"); },
+                function(err) { console.error("Error loading GAPI client for API", err); });
     }
-})
-
+    
+    function execute() {
+      getEmotion();
+     return gapi.client.youtube.search.list({
+        "part": [
+          "snippet"
+        ],
+        "topicId": "/m/04rlf",
+        "maxResults": 50,
+        "q": genre,
+        "regionCode": "US",
+        "type": ["video"]
+        
+      })
+       
+       .then(function(response) {
+       
+       
+       console.log('response', response)
+       document.querySelector('#myVideo').innerHTML = "";
+       
+        for(let i = 0; i < 5; i++)
+        {
+                  
+                  let newVideo = document.createElement('iframe');
+                  newVideo.src = "" + youtubeURL + response.result.items[Math.floor(Math.random()* 50 + 1)].id.videoId + "";
+                  
+                  document.querySelector('#myVideo').append(newVideo);
+          
+        }
+                },
+                function(err) { console.error("Execute error", err); });
+    }
+    gapi.load("client:auth2", function() {
+      gapi.auth2.init({client_id: "client ID"});
+    });
+  
+  
+  
+  
+   
+  document.addEventListener('click', function(e) 
+  {
+      if(e.target.matches('#auth'))
+      {
+          authenticate().then(loadClient);
+          
+      }
+  })
+  document.addEventListener('click', function(e) 
+  {
+      if(e.target.matches('#go'))
+      {
+          execute();
+          
+      }
+  })
+  
+  
+  
+  
 
 
