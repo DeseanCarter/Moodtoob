@@ -114,11 +114,22 @@ $(function()
     });
   });
 
+  //submit button functionality 
   $("#submitBtn").click(function(event){
       event.preventDefault();
       console.log("click!");
       getMood();
   })
+
+  //rock button functionality
+  $("#magicRock").click(function(event){
+    event.preventDefault();
+    nextPage(); 
+})
+
+
+
+
 
 //   $('#testImg').change( function(event)
 //   {
