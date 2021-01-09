@@ -10,14 +10,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <section class="landingPage" style="display:none" data-show>
+        <section class="landingPage" style="display:block" data-show>
             <div class="navBar">
-                <span>(Previous Mood icon)</span> 
-                <span>(New Mood icon)</span>
+                <span><img src="./magicball.png" alt="Previous Mood Icon" class="icon"></span> 
+                <span><img src="./handwithball.png" alt="New Mood Icon" class="icon"></span> 
             </div>
             <div class="welcome">
                 <div class="toForm">
-                    <img src="#" alt="magic mood rock"> <!--can attach eventlistener to this thing, fires ajax request-->
+                    <img src="./rock.png" alt="magic mood rock" class="icon"> <!--can attach eventlistener to this thing, fires ajax request-->
                 </div>
                 <!--appends welcome message and speil if user is new-->
                 <div class="newUser" id="newUser">
@@ -27,7 +27,7 @@
                 <!--appends welcome message and speil if user has been here before, logic concats in previous mood and color-->
             </div>
         </section>
-        <section class="submissionPage" style="display:block" data-hide> <!--toggles the display property from none to flex depending on what data property is-->
+        <section class="submissionPage" style="display:none" data-hide> <!--toggles the display property from none to flex depending on what data property is-->
             <!--photo submission form here-->
             <!--attribute is set to hide when ajax request and append is successful-->
             <!--or do a $(element).detach() function? so it can be re-appended later-->

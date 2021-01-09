@@ -125,7 +125,11 @@ $(function()
 //     console.log( event.target.files );
 //   });
 
+function nextPage(){
+    $(".landingPage").attr("style", "display:none");
+    $(".submissionPage").attr("style", "display:block")
 
+}
 
 
 
