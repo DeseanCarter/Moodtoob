@@ -36,7 +36,9 @@ appendColorTest()
 let currentMood;
 let imageSubmit;
 let imageBase64;
-
+let api_key = "";
+let api_secret= "";
+let mood;
 function getMood (){
 
 //face analyzer API call 
@@ -73,41 +75,56 @@ $.ajax({
     if (happiness >= disgust && happiness >= fear && happiness >= anger && happiness >= neutral && happiness >= sadness && happiness >= surprise){
        //do this
         $("#moodDisplay").empty();
-        $("#moodDisplay").append("You are Happy!")
+       
+        mood = 4;
+        authenticate().then(loadClient).then(execute);
+      $("#moodDisplay").append("You are Happy!")
     //if you are disgust
     } else if (disgust >= happiness && disgust >= fear && disgust >= anger && disgust >= neutral && disgust >= sadness && disgust >= surprise) {
         //do this
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are disgusted!")
+        mood = 2;
+        authenticate().then(loadClient)
     //if you are fear
     } else if(fear >= happiness && fear >= disgust && fear >= anger && fear >= neutral && fear >= sadness && fear >= surprise) {
         //do this 
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are afraid!")
+        mood = 3;
+      authenticate().then(loadClient)
     }
     //if you are angry 
       else if(anger >= happiness && anger >= disgust && anger >= fear && anger >= neutral && anger >= sadness && anger >= surprise) {
         //do this 
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are angry!")
+        mood = 1;
+        authenticate().then(loadClient)
     }
     //if you are neutral
     else if(neutral >= happiness && neutral >= disgust && neutral >= fear && neutral >= anger && neutral >= sadness && neutral >= surprise) {
         //do this 
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are neutral!")
+        mood = 7;
+      authenticate().then(loadClient)
     }
     //if you are sadness 
     else if(sadness >= happiness && sadness >= disgust && sadness >= fear && sadness >= anger && sadness >= neutral && sadness >= surprise) {
         //do this 
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are sad!")
+        mood = 5;
+      authenticate().then(loadClient)
     } 
     //if you are surprise
     else if(surprise >= happiness && surprise >= disgust && surprise >= fear && surprise >= anger && surprise >= neutral && surprise >= sadness) {
         //do this 
         $("#moodDisplay").empty();
         $("#moodDisplay").append("You are surprised!")
+      mood = 6;
+      authenticate().then(loadClient)
     } 
 
 })
@@ -262,7 +279,7 @@ function nextPage(){
   let genre;
   
   function getEmotion(){
-    let mood = Math.floor(Math.random() * 7 + 1);
+    // let mood = Math.floor(Math.random() * 7 + 1);
     console.log(mood);
     if( mood === 1 ){
       genre = moodArr.angry[Math.floor(Math.random() * moodArr.angry.length)]
@@ -314,10 +331,11 @@ function nextPage(){
                 function(err) { console.error("Error signing in", err); });
     }
     function loadClient() {
-      gapi.client.setApiKey("API key");
+      gapi.client.setApiKey("APiKey");
       return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
           .then(function() { console.log("GAPI client loaded for API"); },
                 function(err) { console.error("Error loading GAPI client for API", err); });
+      
     }
     
     function execute() {
@@ -338,36 +356,43 @@ function nextPage(){
        
        
        console.log('response', response)
-       document.querySelector('#myVideo').innerHTML = "";
-       
-        for(let i = 0; i < 5; i++)
+       document.querySelector('#btn').innerHTML = "";
+       document.querySelector('#player').innerHTML = "";
+       let newBtn = document.createElement('button');
+                  newBtn.textContent = 'Moretoob';
+                  newBtn.id = 'go';
+                  newBtn.className= 'row';
+       document.querySelector('#btn').append(newBtn);
+        for(let i = 0; i < 6; i++)
         {
                   
                   let newVideo = document.createElement('iframe');
-                  newVideo.src = "" + youtubeURL + response.result.items[Math.floor(Math.random()* 50 + 1)].id.videoId + "";
                   
-                  document.querySelector('#myVideo').append(newVideo);
-          
+                  newVideo.src = "" + youtubeURL + response.result.items[Math.floor(Math.random()* 50                   + 1)].id.videoId + "";
+                  newVideo.className = 'row player';
+                  document.querySelector('#player').append(newVideo);
+                  
+            
         }
                 },
                 function(err) { console.error("Execute error", err); });
     }
     gapi.load("client:auth2", function() {
-      gapi.auth2.init({client_id: "client ID"});
+      gapi.auth2.init({client_id: "clientId"});
     });
   
   
   
   
    
-  document.addEventListener('click', function(e) 
-  {
-      if(e.target.matches('#auth'))
-      {
-          authenticate().then(loadClient);
+//   document.addEventListener('click', function(e) 
+//   {
+//       if(e.target.matches('#auth'))
+//       {
+//           authenticate().then(loadClient);
           
-      }
-  })
+//       }
+//   })
   document.addEventListener('click', function(e) 
   {
       if(e.target.matches('#go'))
