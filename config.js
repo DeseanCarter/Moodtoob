@@ -1,2 +1,2 @@
-let api_key = "ieZtXQdAZ6VHqF9Eo7YGfpzMqdrsKxuq"
-let api_secret= "qlqHSezGLOP2ls3wFiIeJuULjom0EKYJ"
+let api_key = "xopgV3U-fzjfLDlXIiTxoH2dj9uDFTYn"
+let api_secret= "KAAhtn5-3j68uEvr6jA1MrZCIytXgDBa"
