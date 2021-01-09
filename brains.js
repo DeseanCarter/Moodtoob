@@ -14,8 +14,8 @@ $.ajax({
     url: queryURL,
     type: 'POST',
     data: {
-        api_key: "ieZtXQdAZ6VHqF9Eo7YGfpzMqdrsKxuq",
-        api_secret: "qlqHSezGLOP2ls3wFiIeJuULjom0EKYJ",
+        api_key: api_key,
+        api_secret: api_secret,
         return_attributes: "emotion",
         image_base64: imageBase64,
     },
@@ -114,18 +114,33 @@ $(function()
     });
   });
 
+  //submit button functionality 
   $("#submitBtn").click(function(event){
       event.preventDefault();
       console.log("click!");
       getMood();
   })
 
+  //rock button functionality
+  $("#magicRock").click(function(event){
+    event.preventDefault();
+    nextPage(); 
+})
+
+
+
+
+
 //   $('#testImg').change( function(event)
 //   {
 //     console.log( event.target.files );
 //   });
 
+function nextPage(){
+    $(".landingPage").attr("style", "display:none");
+    $(".submissionPage").attr("style", "display:block")
 
+}
 
 
 

@@ -85,3 +85,7 @@ body{
     padding: 20px;
 }
 /*going to replace with svg element, just using a placeholder*/
+
+.icon {
+    height: 5vh;
+}
