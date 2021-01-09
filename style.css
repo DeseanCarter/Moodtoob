@@ -55,6 +55,18 @@ body{
     align-items: center;
 }
 
+.submissionGreeting { /*first header*/
+    font-size: 5vw;
+    margin-block-end: .25em;
+}
+
+.submissionButtons { /*second header*/
+    font-size: 3vw;
+    margin-block-start: .25em;
+    letter-spacing: 1px;
+    justify-content: right;
+}
+
 .submissionPrompt{
     width:  60vw;
     height: 20vh;

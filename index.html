@@ -30,20 +30,15 @@
         <section class="submissionPage" style="display:none" data-hide> <!--toggles the display property from none to flex depending on what data property is-->
             <!--photo submission form here-->
             <!--attribute is set to hide when ajax request and append is successful-->
-            <!--or do a $(element).detach() function? so it can be re-appended later-->
+            <!--or do a $(element).detach() method? so it can be re-appended later-->
 
-            <!--placeholder iframe here, content will be appended dynamically -->
             <div class="container">
                 <!--Form is - allows callbacks when form validation fails, just before the form is submitted, and after the server has responded. The ability to send custom headers to the server with the submit request. Prevention of a page reload/redirect on submit.-->
                 <!--Form only allows .JPEG & .PNG per Face Plus Plus (img_file???)-->
                 <div class="submissionPrompt">
-                <img src="./tiiiny.png" alt="magic mood ORB" class="moodorb"> <h3>what's your <strong>mood?</strong></h3> 
+                <img src="./magicball.png" alt="magic mood ORB" class="moodorb"> <h3 class="submissionGreeting">what's your <strong>mood?</strong></h3> 
                 </div>
                 <h4 class="submissionButtons"><strong>upload</strong> a photo ... and <strong>submit!</strong></h4>
-                <!--<form is="ajax-form" action="my/form/handler" method="post">
-                    <input type="file" enctype="multipart/form-data" name="fileupload" value="fileupload" id="fileupload" accept="image/jepg, image/x-png" capture="camera"> 
-                    <input type="submit" accept="image/*" name="img" capture="camera"  alt="Submit" width="100"></form>
-            </div>-->
 
             <!--Desean's form area-->
         <div>

@@ -1,3 +1,37 @@
+//===Monica Section===//
+//color constants:
+//font: #fff4de; bg: #101c25;
+
+//initial mood palette: 
+//SURPRISED: #ed8632, #ed4558, #a15f99
+
+//happiness mood palette: 
+//#f27906 #faa106 #2995c0
+
+//disgust mood palette: 
+//#ffe016 #b2d223 #70ab1d
+
+//anger mood palette: 
+//#fb9841 #ed4a1d #d53e27
+
+//neutral mood palette: 
+//#bde47a #55ba9a #3ca1aa
+
+//sadness mood palette: 
+//#296f9d #144c80 #2b2f72
+
+//surprise mood palette: 
+//#ffaa16, #f06516, #e43108
+
+let initialBg = "linear-gradient(to bottom right, (#ed8632, #ed4558 , #a15f99))"
+
+let appendColorTest = function(){
+  $("body").initialBg
+}
+appendColorTest()
+
+// some test logic for touching parts of document to apply color themeing to, "to bottom right" only seems to work when set as variable...hmm.
+// considering relocating gradient from body or otherwise ensuring submission page style is untouched, don't want the gradient there.
 
 let currentMood;
 let imageSubmit;
